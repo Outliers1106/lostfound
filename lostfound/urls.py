@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from model import views
-
+from model.views import *
+from img.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^login-form$',views.login_form),
-    url(r'^login$',views.login),
+    url(r'^login$',login_check),
+    url(r'^save_profile/', save_profile, name='save_profile'),
+    url(r'^index/', index, name='index'),
 ]
