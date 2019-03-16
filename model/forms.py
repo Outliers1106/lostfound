@@ -1,7 +1,5 @@
 from django import forms
 
-#这里是html的表单对象
-
 class logincheck(forms.Form):
     #login_form.html
     username = forms.CharField()
