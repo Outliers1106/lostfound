@@ -1,9 +1,10 @@
-#lost found
 ####lostfound
+
 1. **setting.py**是整个django项目的设置文件，有各种设置的开关以及路径。
 2. **urls.py**中保存有url与视图函数（view）的映射关系
    
 ####APP
+
 项目目前有两个APP：**model**和**img**
 1. **img**是我用来测试图片上传功能的APP
 2. **model**是最主要的APP
@@ -13,15 +14,18 @@
     view同前端网页和后端数据库连接
     
 ####templates
+
 当前测试功能的简单网页（HTML）
 - index.html (**img**)
 - login_form.html (**model**) 用户登陆界面
 - objUpload.html (**model**) 失物信息上传页面
 
 ####upload
+
 用来保存用户上传的图片
 
 ####mydb.db
+
 SQLite数据库
 
     
