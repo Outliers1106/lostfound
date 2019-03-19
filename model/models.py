@@ -16,21 +16,22 @@ class User(models.Model):
     tag = models.BooleanField(default=False)                #标识：tag=True 为管理员；tag=false 为普通用户
 
 class Object(models.Model):
-    id = models.AutoField(primary_key=True)                 #物品编号id——主键（自增）
+    id = models.CharField(primary_key=True,max_length=20)   #物品编号id 由上传的时间组成
     name = models.CharField(max_length=10)                  #名称
     time = models.DateField()                               #捡到/丢失日期
     position = models.CharField(max_length=100)             #捡到/丢失地点
     dscp = models.CharField(max_length=200)                 #描述
     img  = models.ImageField(upload_to="img/object")        #图片
-    state = models.BooleanField(default=False)              #领取状态：state=true已领取;state=false未领取
     tag = models.BooleanField(default=False)                #标识：tag=false lost 失物；tag=true found 拾物
+    state = models.IntegerField()                           # state=0:未审核；state=-1:审核不通过
+                                                            # state=1 已审核，未被领取/捡到；state=2:已审核，被领取/捡到
 
 class UserObject(models.Model):
     object = models.ForeignKey(Object,
                                on_delete=models.CASCADE,)   #物品-外键
     user = models.ForeignKey(User,
                              on_delete=models.CASCADE,)     #用户-外键
-    time = models.DateTimeField()                           #信息提交时间
+    time = models.DateTimeField(auto_now=True)              #信息提交时间
     class Meta:
         unique_together=("object","user")                   #物品和用户联合——主键
 

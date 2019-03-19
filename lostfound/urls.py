@@ -21,7 +21,10 @@ from img.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^login$',login_check),
+    url(r'^login$',login_view),# 登陆界面
+
     url(r'^save_profile/', save_profile, name='save_profile'),
-    url(r'^index/', index, name='index'),
+    url(r'^index/', index, name='index'), # 图片上传
+
+    url(r'^upload$',objUpload_view) #物品信息上传
 ]

@@ -1,19 +1,27 @@
-# lostfound 开发记录
+#lost found
+####**lostfound**
+1. **setting.py**是整个django项目的设置文件，有各种设置的开关以及路径。
+2. **urls.py**中保存有url与视图函数（view）的映射关系
+   
+####**APP**
+项目目前有两个APP：**model**和**img**
+1. **img**是我用来测试图片上传功能的APP
+2. **model**是最主要的APP
+    - **models.py** 数据库对象的模型
+    - **forms.py**  django表单模型，格式上同**models.py**很像，注意区分
+    - **views.py** django的视图函数，通过**urls.py**映射对应的视图完成指定的功能，
+    view同前端网页和后端数据库连接
+    
+####**templates**
+当前测试功能的简单网页（HTML）
+- index.html (img)
+- login_form.html (model) 用户登陆界面
+- objUpload.html (model) 失物信息上传页面
 
-*2019年3月15日11点02分*
-- 数据库由mysql改成了sqlite3：mydb.db
+####**upload**
+用来保存用户上传的图片
 
-*2019年3月14日21点07分*
-- 创建了一个测试图片上传的app：img（参考网站：https://www.jianshu.com/p/3c79b19849f5）
-- 修改了数据库模型，添加了所有数据模型的主键设置，避免数据重复
+####**mydb.db**
+SQLite数据库
 
-*2019年3月13日22点35分*
-- 表单的POST方法引起的csrf错误，通过注释setting中csrf检查，解决的报错，需要后期改进
-```
-    django.middleware.csrf.CsrfViewMiddleware
-```
-- 对数据库模型进行了一定的修改；
-
-    **主要**
-- 写了一个简单的用户登陆界面；
-- 完成了简单的用户登陆与数据库的交互操作
+    
